@@ -37,11 +37,11 @@ int lerModalidade() {
     int modalidade;
 
     do {
-        printf("\nEscolha a modalidade:\n");
-        printf("1 - Economica\n");
-        printf("2 - Expressa\n");
-        printf("3 - Prioritaria\n");
-        printf("Opcao: ");
+        printf("\n===== MODALIDADES DE ENTREGA =====\n");
+        printf("1 - Economica (sem adicional)\n");
+        printf("2 - Expressa (15%% de adicional)\n");
+        printf("3 - Prioritaria (30%% de adicional)\n");
+        printf("Escolha uma opcao: ");
         scanf("%d", &modalidade);
 
         if (modalidade < 1 || modalidade > 3) {
