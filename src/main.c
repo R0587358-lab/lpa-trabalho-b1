@@ -76,6 +76,7 @@ int lerModalidade() {
 }
 
 int lerProtecao() {
+int protecao;
 int resultado;
 
 do {
