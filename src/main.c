@@ -124,13 +124,26 @@ return tentativas;
 
 int lerOpcaoContinuar() {
     int continuar;
+    int resultado;
 
     do {
-        printf("\nDeseja registrar outra entrega? (1-Sim / 0-Nao): ");
-        scanf("%d", &continuar);
 
-        if (continuar != 0 && continuar != 1) {
+        printf("\nDeseja registrar outra entrega? (1-Sim / 0-Nao): ");
+
+        resultado = scanf("%d", &continuar);
+
+        if (resultado != 1) {
+
+            printf("Entrada invalida! Digite 1 ou 0.\n");
+
+            while (getchar() != '\n');
+
+            continuar = -1;
+
+        } else if (continuar != 0 && continuar != 1) {
+
             printf("Opcao invalida!\n");
+
         }
 
     } while (continuar != 0 && continuar != 1);
