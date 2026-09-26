@@ -56,8 +56,18 @@ int lerModalidade() {
         printf("Escolha uma opcao: ");
         scanf("%d", &modalidade);
 
-        if (modalidade < 1 || modalidade > 3) {
-            printf("Modalidade invalida!\n");
+        if (resultado != 1) {
+
+            printf("Entrada invalida! Digite 1, 2 ou 3.\n");
+
+            while (getchar() != '\n');
+
+            modalidade = 0;
+
+        } else if (modalidade < 1 || modalidade > 3) {
+
+            printf("Opcao invalida! Escolha 1, 2 ou 3.\n");
+
         }
 
     } while (modalidade < 1 || modalidade > 3);
