@@ -24,12 +24,19 @@ float lerDistancia() {
 }
 float lerPeso() {
     float peso;
+    int resultado;
 
     do {
-        printf("Digite o peso em kg: ");
-        scanf("%f", &peso);
+        printf("Digite o peso da entrega em kg: ");
+        resultado = scanf("%f", &peso);
 
-        if (peso <= 0) {
+        if (resultado != 1) {
+            printf("Entrada invalida! Digite um numero.\n");
+
+            while (getchar() != '\n');
+            peso = 0;
+
+        } else if (peso <= 0) {
             printf("Peso invalido! Digite novamente.\n");
         }
 
