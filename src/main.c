@@ -4,15 +4,20 @@
 
 float lerDistancia() {
     float distancia;
+    int resultado;
 
     do {
         printf("Digite a distancia em km: ");
-        scanf("%f", &distancia);
+        resultado = scanf("%f", &distancia);
 
-        if (distancia <= 0) {
+        if (resultado != 1) {
+            printf("Entrada invalida! Digite um numero.\n");
+   
+            while (getchar() != '\n');
+            distancia = 0;
+           }else if (distancia <= 0) {
             printf("Distancia invalida! Digite novamente.\n");
         }
-
     } while (distancia <= 0);
 
     return distancia;
