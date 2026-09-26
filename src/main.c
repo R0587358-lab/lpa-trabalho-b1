@@ -68,3 +68,62 @@ int lerProtecao() {
 
     return protecao;
 }
+
+int lerTentativasAdicionais() {
+    int tentativas;
+
+    do {
+        printf("Quantidade de tentativas adicionais: ");
+        scanf("%d", &tentativas);
+
+        if (tentativas < 0) {
+            printf("Quantidade invalida!\n");
+        }
+
+    } while (tentativas < 0);
+
+    return tentativas;
+}
+
+int lerOpcaoContinuar() {
+    int continuar;
+
+    do {
+        printf("\nDeseja registrar outra entrega? (1-Sim / 0-Nao): ");
+        scanf("%d", &continuar);
+
+        if (continuar != 0 && continuar != 1) {
+            printf("Opcao invalida!\n");
+        }
+
+    } while (continuar != 0 && continuar != 1);
+
+    return continuar;
+}
+
+/* FUNCOES DE CALCULO */
+
+float obterValorBase(float distancia) {
+    if (distancia <= 5) {
+        return 8.0;
+    } else if (distancia <= 15) {
+        return 12.0;
+    } else if (distancia <= 30) {
+        return 18.0;
+    } else {
+        return 25.0;
+    }
+}
+
+float calcularSubtotal(float distancia) {
+    float valorBase;
+    float valorPorKm;
+    float subtotal;
+
+    valorBase = obterValorBase(distancia);
+    valorPorKm = distancia * 1.20;
+
+    subtotal = valorBase + valorPorKm;
+
+    return subtotal;
+}
