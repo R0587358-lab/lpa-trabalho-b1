@@ -127,3 +127,73 @@ float calcularSubtotal(float distancia) {
 
     return subtotal;
 }
+float calcularAdicionalPeso(float peso, float subtotal) {
+    float percentual;
+
+    if (peso <= 2) {
+        percentual = 0.0;
+    } else if (peso <= 5) {
+        percentual = 0.05;
+    } else if (peso <= 10) {
+        percentual = 0.10;
+    } else {
+        percentual = 0.20;
+    }
+
+    return subtotal * percentual;
+}
+
+float calcularAdicionalModalidade(int modalidade, float subtotal) {
+    float percentual;
+
+    switch (modalidade) {
+        case 1:
+            percentual = 0.0;
+            break;
+
+        case 2:
+            percentual = 0.15;
+            break;
+
+        case 3:
+            percentual = 0.30;
+            break;
+
+        default:
+            percentual = 0.0;
+    }
+
+    return subtotal * percentual;
+}
+
+float calcularValorFinal(float subtotal, float adicionalPeso,
+                         float adicionalModalidade, int protecao,
+                         int tentativas) {
+    float valorProtecao;
+    float valorTentativas;
+    float valorFinal;
+
+    valorProtecao = 0.0;
+
+    if (protecao == 1) {
+        valorProtecao = 7.50;
+    }
+
+    valorTentativas = tentativas * 4.00;
+
+    valorFinal = subtotal + adicionalPeso
+                 + adicionalModalidade
+                 + valorProtecao
+                 + valorTentativas;
+
+    return valorFinal;
+}
+
+/* FUNCOES DE APRESENTACAO */
+
+void exibirResultadoEntrega(int numeroEntrega, float valorFinal) {
+    printf("\n------------------------------\n");
+    printf("Entrega numero: %d\n", numeroEntrega);
+    printf("Valor final: R$ %.2f\n", valorFinal);
+    printf("------------------------------\n");
+}
