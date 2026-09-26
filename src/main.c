@@ -197,3 +197,103 @@ void exibirResultadoEntrega(int numeroEntrega, float valorFinal) {
     printf("Valor final: R$ %.2f\n", valorFinal);
     printf("------------------------------\n");
 }
+/* FUNCAO PRINCIPAL */
+
+int main() {
+    float distancia;
+    float peso;
+    float subtotal;
+    float adicionalPeso;
+    float adicionalModalidade;
+    float valorFinal;
+
+    float valorTotal = 0.0;
+    float maiorValor = 0.0;
+    float menorValor = 0.0;
+
+    int modalidade;
+    int protecao;
+    int tentativas;
+    int continuar;
+
+    int quantidade = 0;
+    int economica = 0;
+    int expressa = 0;
+    int prioritaria = 0;
+
+    printf("==================================\n");
+    printf("     SIMULADOR DE ENTREGAS\n");
+    printf("==================================\n");
+
+    do {
+        printf("\n--- NOVA ENTREGA ---\n");
+
+        distancia = lerDistancia();
+        peso = lerPeso();
+        modalidade = lerModalidade();
+        protecao = lerProtecao();
+        tentativas = lerTentativasAdicionais();
+
+        subtotal = calcularSubtotal(distancia);
+
+        adicionalPeso = calcularAdicionalPeso(peso, subtotal);
+
+        adicionalModalidade =
+            calcularAdicionalModalidade(modalidade, subtotal);
+
+        valorFinal = calcularValorFinal(
+            subtotal,
+            adicionalPeso,
+            adicionalModalidade,
+            protecao,
+            tentativas
+        );
+
+        quantidade++;
+        valorTotal = valorTotal + valorFinal;
+
+        if (quantidade == 1) {
+            maiorValor = valorFinal;
+            menorValor = valorFinal;
+        } else {
+            if (valorFinal > maiorValor) {
+                maiorValor = valorFinal;
+            }
+
+            if (valorFinal < menorValor) {
+                menorValor = valorFinal;
+            }
+        }
+
+        switch (modalidade) {
+            case 1:
+                economica++;
+                break;
+
+            case 2:
+                expressa++;
+                break;
+
+            case 3:
+                prioritaria++;
+                break;
+        }
+
+        exibirResultadoEntrega(quantidade, valorFinal);
+
+        continuar = lerOpcaoContinuar();
+
+    } while (continuar == 1);
+
+    exibirResumoFinal(
+        quantidade,
+        valorTotal,
+        economica,
+        expressa,
+        prioritaria,
+        maiorValor,
+        menorValor
+    );
+
+    return 0;
+}
