@@ -76,35 +76,49 @@ int lerModalidade() {
 }
 
 int lerProtecao() {
-    int protecao;
+int resultado;
 
-    do {
-        printf("Deseja contratar protecao? (1-Sim / 0-Nao): ");
-        scanf("%d", &protecao);
+do {
+    printf("Deseja protecao? (1 - Sim / 0 - Nao): ");
+    resultado = scanf("%d", &protecao);
 
-        if (protecao != 0 && protecao != 1) {
-            printf("Opcao invalida!\n");
-        }
+    if (resultado != 1) {
+        printf("Entrada invalida! Digite 1 ou 0.\n");
 
-    } while (protecao != 0 && protecao != 1);
+        while (getchar() != '\n');
+        protecao = -1;
 
-    return protecao;
+    } else if (protecao != 0 && protecao != 1) {
+        printf("Opcao invalida! Digite 1 ou 0.\n");
+    }
+
+} while (protecao != 0 && protecao != 1);
+
+return protecao;
 }
 
 int lerTentativasAdicionais() {
     int tentativas;
 
-    do {
-        printf("Quantidade de tentativas adicionais: ");
-        scanf("%d", &tentativas);
+    int resultado;
 
-        if (tentativas < 0) {
-            printf("Quantidade invalida!\n");
-        }
+do {
+    printf("Digite a quantidade de tentativas adicionais: ");
+    resultado = scanf("%d", &tentativas);
 
-    } while (tentativas < 0);
+    if (resultado != 1) {
+        printf("Entrada invalida! Digite um numero inteiro.\n");
 
-    return tentativas;
+        while (getchar() != '\n');
+        tentativas = -1;
+
+    } else if (tentativas < 0) {
+        printf("Quantidade invalida! Digite zero ou um numero positivo.\n");
+    }
+
+} while (tentativas < 0);
+
+return tentativas;
 }
 
 int lerOpcaoContinuar() {
