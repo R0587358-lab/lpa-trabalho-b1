@@ -234,6 +234,28 @@ void exibirResultadoEntrega(int numeroEntrega, float valorFinal) {
     printf("Valor final: R$ %.2f\n", valorFinal);
     printf("------------------------------\n");
 }
+
+void exibirResumoFinal(int quantidade, float valorTotal,
+                       int economica, int expressa,
+                       int prioritaria, float maiorValor,
+                       float menorValor) {
+    float media;
+
+    printf("\n===== RESUMO FINAL =====\n");
+    printf("Quantidade de entregas: %d\n", quantidade);
+    printf("Valor total: R$ %.2f\n", valorTotal);
+
+    if (quantidade > 0) {
+        media = valorTotal / quantidade;
+        printf("Media por entrega: R$ %.2f\n", media);
+        printf("Maior entrega: R$ %.2f\n", maiorValor);
+        printf("Menor entrega: R$ %.2f\n", menorValor);
+    }
+
+    printf("Economicas: %d\n", economica);
+    printf("Expressas: %d\n", expressa);
+    printf("Prioritarias: %d\n", prioritaria);
+}
 /* FUNCAO PRINCIPAL */
 
 int main() {
