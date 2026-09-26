@@ -47,14 +47,14 @@ float lerPeso() {
 
 int lerModalidade() {
     int modalidade;
-
+     int resultado;
     do {
         printf("\n===== MODALIDADES DE ENTREGA =====\n");
         printf("1 - Economica (sem adicional)\n");
         printf("2 - Expressa (15%% de adicional)\n");
         printf("3 - Prioritaria (30%% de adicional)\n");
         printf("Escolha uma opcao: ");
-        scanf("%d", &modalidade);
+        resultado = scanf("%d", &modalidade);
 
         if (resultado != 1) {
 
