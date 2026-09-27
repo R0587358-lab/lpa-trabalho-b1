@@ -57,4 +57,5 @@ Quando tinha dúvidas sobre como fazer alguma parte do programa, pedia ajuda par
 Fontes consultadas
 
 * Material e orientações disponibilizados pelo professor.
+* ChatGPT, utilizado para esclarecer dúvidas sobre programação em C e entender os erros no código.
 
