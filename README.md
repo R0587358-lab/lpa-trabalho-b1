@@ -49,6 +49,9 @@ main.exe
 O programa solicita os dados de cada entrega e pergunta se o usuário deseja processar outra. Ao digitar 0, a sessão é encerrada e o resumo final é exibido.
 
 Uso de Inteligência Artificial
+Durante o desenvolvimento deste trabalho, utilizei o ChatGPT para esclarecer dúvidas sobre programação em C e entender melhor alguns erros que apareceram no código.
+
+Quando tinha dúvidas sobre como fazer alguma parte do programa, pedia ajuda para entender como poderia resolver. Também utilizei a ferramenta para identificar erros no código e entender por que eles aconteciam.
 
 
 Fontes consultadas
